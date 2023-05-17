@@ -18,7 +18,7 @@ class SampleResourceController(
 
   @GetMapping("/getData/{sampleId}")
   fun getSampleData(
-    @PathVariable sampleId: String,
+    @PathVariable sampleId: String
   ): SampleDataDTO {
     return sampleDataService.getSampleData(sampleId)
   }

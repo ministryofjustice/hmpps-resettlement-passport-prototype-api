@@ -7,12 +7,12 @@ services:
       - hmpps
     container_name: hmpps-resettlement-passport-prototype-api
     ports:
-      - "8080:8080"
+      - "8081:8080"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/health/ping"]
     environment:
       - SERVER_PORT=8080
-      - SPRING_PROFILES_ACTIVE=developer
+      - SPRING_PROFILES_ACTIVE=dev
 
   localstack:
     image: localstack/localstack:0.14.0

@@ -1,4 +1,4 @@
-FROM --platform=$BUILDPLATFORM eclipse-temurin:18 AS builder
+FROM --platform=$BUILDPLATFORM eclipse-temurin:19-jre-jammy AS builder
 
 ARG BUILD_NUMBER
 ENV BUILD_NUMBER ${BUILD_NUMBER:-1_0_0}
@@ -11,7 +11,7 @@ RUN ./gradlew --no-daemon assemble
 # RUN apt-get update && apt-get install -y curl
 # RUN curl https://s3.amazonaws.com/rds-downloads/rds-ca-2019-root.pem  > root.crt
 
-FROM eclipse-temurin:18
+FROM eclipse-temurin:19-jre-jammy
 LABEL maintainer="HMPPS Digital Studio <info@digital.justice.gov.uk>"
 
 ARG BUILD_NUMBER
@@ -19,7 +19,6 @@ ENV BUILD_NUMBER ${BUILD_NUMBER:-1_0_0}
 
 RUN apt-get update && \
     apt-get -y upgrade && \
-    apt-get install -y curl && \
     rm -rf /var/lib/apt/lists/*
 
 ENV TZ=Europe/London
@@ -34,7 +33,7 @@ RUN addgroup --gid 2000 --system appgroup && \
 
 
 WORKDIR /app
-COPY --from=builder --chown=appuser:appgroup /app/build/libs/hmpps-education-employment-api*.jar /app/app.jar
+COPY --from=builder --chown=appuser:appgroup /app/build/libs/hmpps-resettlement-passport-prototype-api*.jar /app/app.jar
 COPY --from=builder --chown=appuser:appgroup /app/build/libs/applicationinsights-agent*.jar /app/agent.jar
 COPY --from=builder --chown=appuser:appgroup /app/applicationinsights.json /app
 COPY --from=builder --chown=appuser:appgroup /app/applicationinsights.dev.json /app

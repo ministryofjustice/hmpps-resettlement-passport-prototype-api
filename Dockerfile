@@ -32,7 +32,6 @@ RUN addgroup --gid 2000 --system appgroup && \
 # RUN mkdir /home/appuser/.postgresql
 # COPY --from=builder --chown=appuser:appgroup /app/root.crt /home/appuser/.postgresql/root.crt
 
-
 WORKDIR /app
 COPY --from=builder --chown=appuser:appgroup /app/build/libs/hmpps-education-employment-api*.jar /app/app.jar
 COPY --from=builder --chown=appuser:appgroup /app/build/libs/applicationinsights-agent*.jar /app/agent.jar

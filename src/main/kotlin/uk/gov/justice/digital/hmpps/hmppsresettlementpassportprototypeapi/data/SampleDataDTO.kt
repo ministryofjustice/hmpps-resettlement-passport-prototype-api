@@ -10,5 +10,3 @@ data class SampleDataDTO(
 
   val sampleData: String,
 )
-
-

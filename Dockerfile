@@ -11,7 +11,8 @@ RUN ./gradlew --no-daemon assemble
 # RUN apt-get update && apt-get install -y curl
 # RUN curl https://s3.amazonaws.com/rds-downloads/rds-ca-2019-root.pem  > root.crt
 
-FROM eclipse-temurin:18
+
+FROM eclipse-temurin:19-jre-jammy
 LABEL maintainer="HMPPS Digital Studio <info@digital.justice.gov.uk>"
 
 ARG BUILD_NUMBER
@@ -33,7 +34,7 @@ RUN addgroup --gid 2000 --system appgroup && \
 # COPY --from=builder --chown=appuser:appgroup /app/root.crt /home/appuser/.postgresql/root.crt
 
 WORKDIR /app
-COPY --from=builder --chown=appuser:appgroup /app/build/libs/hmpps-education-employment-api*.jar /app/app.jar
+COPY --from=builder --chown=appuser:appgroup /app/build/libs/hmpps-resettlement-passport-prototype-api*.jar /app/app.jar
 COPY --from=builder --chown=appuser:appgroup /app/build/libs/applicationinsights-agent*.jar /app/agent.jar
 COPY --from=builder --chown=appuser:appgroup /app/applicationinsights.json /app
 COPY --from=builder --chown=appuser:appgroup /app/applicationinsights.dev.json /app

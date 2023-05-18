@@ -3,10 +3,11 @@ services:
   hmpps-resettlement-passport-prototype-api:
     build:
       context: .
-    network_mode: "host"
+    networks:
+      - hmpps
     container_name: hmpps-resettlement-passport-prototype-api
     ports:
-      - "8081:8080"
+      - "8080:8080"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/health/ping"]
     environment:

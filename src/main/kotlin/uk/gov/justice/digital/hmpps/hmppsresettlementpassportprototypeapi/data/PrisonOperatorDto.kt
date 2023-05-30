@@ -7,5 +7,4 @@ data class PrisonOperatorDto(
 ) {
   constructor(prisonOperator: Operator) : this(prisonOperator.name)
 }
-
- */
+*/

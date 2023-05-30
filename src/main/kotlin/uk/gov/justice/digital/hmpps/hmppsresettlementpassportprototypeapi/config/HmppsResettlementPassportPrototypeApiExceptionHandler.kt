@@ -63,7 +63,6 @@ enum class ErrorCode(val errorCode: Int) {
   PrisonIncentiveLevelDefaultRequired(204),
 }
 
-
 data class ErrorResponse(
   val status: Int,
   val errorCode: Int? = null,

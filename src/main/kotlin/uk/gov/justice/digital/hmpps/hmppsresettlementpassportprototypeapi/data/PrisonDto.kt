@@ -13,9 +13,9 @@ data class PrisonDto(
   @Schema(description = "Whether the prison has male prisoners") val male: Boolean,
   @Schema(description = "Whether the prison has female prisoners") val female: Boolean,
   @Schema(description = "Whether the prison is contracted") val contracted: Boolean,
- // @Schema(description = "List of types for this prison") val types: List<PrisonTypeDto> = listOf(),
- // @Schema(description = "List of address for this prison") val addresses: List<AddressDto> = listOf(),
- // @Schema(description = "List of operators for this prison") val operators: List<PrisonOperatorDto> = listOf(),
+  // @Schema(description = "List of types for this prison") val types: List<PrisonTypeDto> = listOf(),
+  // @Schema(description = "List of address for this prison") val addresses: List<AddressDto> = listOf(),
+  // @Schema(description = "List of operators for this prison") val operators: List<PrisonOperatorDto> = listOf(),
 ) {
   constructor(prison: PrisonDto) : this(
     prison.prisonId,
@@ -24,8 +24,8 @@ data class PrisonDto(
     prison.male,
     prison.female,
     prison.contracted,
-   // prison.prisonTypes.map { PrisonTypeDto(it) },
-   // prison.addresses.map { AddressDto(it) },
-   // prison.prisonOperators.map { PrisonOperatorDto(it) },
+    // prison.prisonTypes.map { PrisonTypeDto(it) },
+    // prison.addresses.map { AddressDto(it) },
+    // prison.prisonOperators.map { PrisonOperatorDto(it) },
   )
 }

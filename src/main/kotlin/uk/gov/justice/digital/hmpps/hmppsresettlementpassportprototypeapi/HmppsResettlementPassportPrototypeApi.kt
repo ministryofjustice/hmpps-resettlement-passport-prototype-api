@@ -8,6 +8,7 @@ import org.springframework.boot.runApplication
  * as well as the "audit module" for creating records in prison-api
  */
 const val SYSTEM_USERNAME = "RESETTLEMENT_PASSPORT_API"
+
 @SpringBootApplication()
 class HmppsResettlementPassportPrototypeApi
 

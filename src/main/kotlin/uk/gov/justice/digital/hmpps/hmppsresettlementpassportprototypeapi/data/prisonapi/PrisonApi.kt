@@ -20,13 +20,11 @@ data class Address(
   val county: String?,
   val postcode: String,
   val country: String,
-
 )
 
-data class PrisonType (
+data class PrisonType(
   val code: String,
   val description: String,
-
 )
 
 data class PrisonOperator(

@@ -42,7 +42,7 @@ class PrisonResourceController (
       ),
     ],
   )
-  suspend fun getPrisons(): List<Prison> = prisonService.getPrisons(false)
+  suspend fun getPrisons(): List<Prison> = prisonService.getPrisons(true)
 
   @GetMapping("/prisons/id/{prisonId}")
   @Operation(summary = "Get a prison", description = "A prison data")

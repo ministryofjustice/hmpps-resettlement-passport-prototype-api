@@ -19,14 +19,14 @@ spring:
     add-properties: true
 
   #flyway:
-  #  url: jdbc:postgresql://localhost:5432/db89e97236732b0ebb?sslmode=prefer
-  #  user: cpx7H5LIZD
-  #  password: H<d4XPG5PoO-.4=XROfslPfAIIaX!JN9nb1dqmkzBPQ8Ad7C$(Qn1:fuqwN9
+  #  url: jdbc:postgresql://localhost:5432/resettlementpassport?sslmode=prefer
+  #  user: resettlementpassport
+  #  password: resettlementpassport
 
   r2dbc:
-    url: r2dbc:postgresql://localhost:5432/db89e97236732b0ebb?sslmode=prefer
-    username: cpx7H5LIZD
-    password: H<d4XPG5PoO-.4=XROfslPfAIIaX!JN9nb1dqmkzBPQ8Ad7C$(Qn1:fuqwN9
+    url: r2dbc:postgresql://localhost:5432/resettlementpassport?sslmode=prefer
+    username: resettlementpassport
+    password: resettlementpassport
     properties:
       sslMode: DISABLE
       sslRootCert:

@@ -15,12 +15,18 @@ spring:
       resourceserver:
         jwt:
           jwk-set-uri: ${api.base.url.oauth}/.well-known/jwks.json
-          issuer-uri: ${api.base.url.oauth}/oauth2/default
+          #issuer-uri: ${api.base.url.oauth}/oauth2/default
+        #issuer:
+        #  name:
+        #    uri: ${api.base.url.oauth}/oauth2/default
+        #    jwk-set-uri: ${api.base.url.oauth}/.well-known/jwks.json
 
       client:
         registration:
           RESETTLEMENT_PASSPORT_API:
               provider: hmpps-auth
+              #client-id: ${resettlementpassport.api.client.id}
+              #client-secret: ${resettlementpassport.api.client.secret}
               client-id: abdul-rahuman
               client-secret: H<d4XPG5PoO-.4=XROfslPfAIIaX!JN9nb1dqmkzBPQ8Ad7C$(Qn1:fuqwN9
               authorization-grant-type: client_credentials

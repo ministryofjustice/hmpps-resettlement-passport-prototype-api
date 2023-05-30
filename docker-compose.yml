@@ -13,8 +13,10 @@ services:
     environment:
       - SERVER_PORT=8080
       - SPRING_PROFILES_ACTIVE=dev
-      - API_BASE_URL_OAUTH=http://hmpps-auth:8080/auth
-      - API_BASE_URL_PRISON=http://prison-api-resettlement-passport-prototype-api:8080
+      - API_BASE_URL_OAUTH=https://sign-in-dev.hmpps.service.justice.gov.uk/auth
+      #http://hmpps-auth:8080/auth
+      - API_BASE_URL_PRISON=https://prison-register-dev.hmpps.service.justice.gov.uk
+      #http://prison-api-resettlement-passport-prototype-api:8080
       - API_BASE_URL_OFFENDER_SEARCH=http://prisoner-search:8080
 
 

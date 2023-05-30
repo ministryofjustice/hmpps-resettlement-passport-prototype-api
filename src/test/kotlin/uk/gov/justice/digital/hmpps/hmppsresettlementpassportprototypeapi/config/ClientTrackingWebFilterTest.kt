@@ -41,7 +41,7 @@ class ClientTrackingWebFilterTest {
     // Given
     val token = jwtAuthHelper.createJwt("bob")
     val exchange = MockServerWebExchange.builder(
-      MockServerHttpRequest.get("http://incentives")
+      MockServerHttpRequest.get("http://resettlementpassport")
         .header(HttpHeaders.AUTHORIZATION, "Bearer $token").build(),
     ).build()
 
@@ -70,7 +70,7 @@ class ClientTrackingWebFilterTest {
     // Given
     val token = jwtAuthHelper.createJwt(null)
     val exchange = MockServerWebExchange.builder(
-      MockServerHttpRequest.get("http://incentives")
+      MockServerHttpRequest.get("http://resettlementpassport")
         .header(HttpHeaders.AUTHORIZATION, "Bearer $token").build(),
     ).build()
 

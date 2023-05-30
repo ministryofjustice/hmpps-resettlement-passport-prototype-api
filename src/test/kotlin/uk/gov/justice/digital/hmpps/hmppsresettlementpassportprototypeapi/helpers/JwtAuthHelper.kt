@@ -28,7 +28,7 @@ class JwtAuthHelper {
   fun jwtDecoder(): ReactiveJwtDecoder = NimbusReactiveJwtDecoder.withPublicKey(keyPair.public as RSAPublicKey).build()
 
   fun setAuthorisation(
-    user: String = "INCENTIVES_ADM",
+    user: String = "RESETTLEMENTPASSPORT_ADM",
     roles: List<String> = listOf(),
     scopes: List<String> = listOf(),
   ): (HttpHeaders) -> Unit {

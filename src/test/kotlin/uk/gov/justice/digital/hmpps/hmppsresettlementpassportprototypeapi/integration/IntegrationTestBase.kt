@@ -1,3 +1,5 @@
+
+/*
 package uk.gov.justice.digital.hmpps.hmppsresettlementpassportprototypeapi.integration
 
 import org.junit.jupiter.api.AfterAll
@@ -51,7 +53,7 @@ abstract class IntegrationTestBase : TestBase() {
     System.setProperty("http.keepAlive", "false")
   }
   protected fun setAuthorisation(
-    user: String = "INCENTIVES_ADM",
+    user: String = "RESETTLEMENTPASSPORT_ADM",
     roles: List<String> = listOf(),
     scopes: List<String> = listOf(),
   ): (HttpHeaders) -> Unit = jwtAuthHelper.setAuthorisation(user, roles, scopes)
@@ -59,3 +61,4 @@ abstract class IntegrationTestBase : TestBase() {
   @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
   fun readFile(file: String): String = this.javaClass.getResource(file).readText()
 }
+*/

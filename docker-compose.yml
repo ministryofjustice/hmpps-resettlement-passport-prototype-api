@@ -20,61 +20,61 @@ services:
       - API_BASE_URL_OFFENDER_SEARCH=http://prisoner-search:8080
 
 
-  hmpps-auth:
-    image: quay.io/hmpps/hmpps-auth:latest
-    networks:
-      - hmpps
-    container_name: hmpps-auth-resettlement-passport-prototype-api
-    ports:
-      - "9090:8080"
-    healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:8080/auth/health" ]
-    environment:
-      - SPRING_PROFILES_ACTIVE=dev,nomis
-      - APPLICATION_AUTHENTICATION_UI_ALLOWLIST=0.0.0.0/0
-      - NOMIS_ENDPOINT_URL=http://nomis-user-roles-api-resettlement-passport-prototype-api:8080
+#  hmpps-auth:
+#    image: quay.io/hmpps/hmpps-auth:latest
+#    networks:
+#      - hmpps
+#    container_name: hmpps-auth-resettlement-passport-prototype-api
+#    ports:
+#      - "9090:8080"
+#    healthcheck:
+#      test: [ "CMD", "curl", "-f", "http://localhost:8080/auth/health" ]
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=dev,nomis
+#      - APPLICATION_AUTHENTICATION_UI_ALLOWLIST=0.0.0.0/0
+#      - NOMIS_ENDPOINT_URL=http://nomis-user-roles-api-resettlement-passport-prototype-api:8080
 
-  nomis-user-roles-api:
-    image: quay.io/hmpps/nomis-user-roles-api:latest
-    networks:
-      - hmpps
-    container_name: nomis-user-roles-api-resettlement-passport-prototype-api
-    depends_on:
-      - hmpps-auth
-    ports:
-      - "8084:8080"
-    healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:8080/health" ]
-    environment:
-      - SERVER_PORT=8080
-      - SPRING_PROFILES_ACTIVE=dev
+#  nomis-user-roles-api:
+#    image: quay.io/hmpps/nomis-user-roles-api:latest
+#    networks:
+#      - hmpps
+#    container_name: nomis-user-roles-api-resettlement-passport-prototype-api
+#    depends_on:
+#      - hmpps-auth
+#    ports:
+#      - "8084:8080"
+#    healthcheck:
+#      test: [ "CMD", "curl", "-f", "http://localhost:8080/health" ]
+#    environment:
+#      - SERVER_PORT=8080
+#      - SPRING_PROFILES_ACTIVE=dev
       - API_BASE_URL_OAUTH=http://hmpps-auth:8080/auth
 
-  prisoner-search:
-    image: wiremock/wiremock:2.35.0
-    networks:
-      - hmpps
-    container_name: prisoner-search-api-resettlement-passport-prototype-api
-    depends_on:
-      - hmpps-auth
-    ports:
-      - "8083:8080"
-    volumes:
-      - ./prisoner-search-data:/home/wiremock
+#  prisoner-search:
+#    image: wiremock/wiremock:2.35.0
+#    networks:
+#      - hmpps
+#    container_name: prisoner-search-api-resettlement-passport-prototype-api
+#    depends_on:
+#      - hmpps-auth
+#    ports:
+#      - "8083:8080"
+#    volumes:
+#      - ./prisoner-search-data:/home/wiremock
 
-  prison-api:
-    image: quay.io/hmpps/prison-api:latest
-    networks:
-      - hmpps
-    container_name: prison-api-resettlement-passport-prototype-api
-    depends_on:
-      - hmpps-auth
-    ports:
-      - "8082:8080"
-    healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:8080/health" ]
-    environment:
-      - SPRING_PROFILES_ACTIVE=nomis-hsqldb
+#  prison-api:
+#    image: quay.io/hmpps/prison-api:latest
+#    networks:
+#      - hmpps
+#    container_name: prison-api-resettlement-passport-prototype-api
+#    depends_on:
+#      - hmpps-auth
+#    ports:
+#      - "8082:8080"
+#    healthcheck:
+#      test: [ "CMD", "curl", "-f", "http://localhost:8080/health" ]
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=nomis-hsqldb
 
   localstack:
     image: localstack/localstack:0.14.0

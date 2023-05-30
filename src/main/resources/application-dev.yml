@@ -1,0 +1,35 @@
+server:
+  shutdown: immediate
+
+api:
+  base:
+    url:
+      oauth: https://sign-in-dev.hmpps.service.justice.gov.uk/auth
+      #oauth: http://localhost:9090/auth
+      prison: https://prison-register-dev.hmpps.service.justice.gov.uk
+      #prison: http://localhost:8082
+      offender-search: http://localhost:8083
+
+management.endpoint:
+  health.cache.time-to-live: 0
+  info.cache.time-to-live: 0
+
+spring:
+  devtools:
+    add-properties: true
+
+  #flyway:
+  #  url: jdbc:postgresql://localhost:5432/db89e97236732b0ebb?sslmode=prefer
+  #  user: cpx7H5LIZD
+  #  password: H<d4XPG5PoO-.4=XROfslPfAIIaX!JN9nb1dqmkzBPQ8Ad7C$(Qn1:fuqwN9
+
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/db89e97236732b0ebb?sslmode=prefer
+    username: cpx7H5LIZD
+    password: H<d4XPG5PoO-.4=XROfslPfAIIaX!JN9nb1dqmkzBPQ8Ad7C$(Qn1:fuqwN9
+    properties:
+      sslMode: DISABLE
+      sslRootCert:
+
+  feature-toggles:
+    afine: true

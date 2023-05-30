@@ -3,7 +3,6 @@ package uk.gov.justice.digital.hmpps.hmppsresettlementpassportprototypeapi.servi
 import org.springframework.stereotype.Service
 import org.springframework.web.reactive.function.client.WebClient
 import org.springframework.web.reactive.function.client.awaitBody
-import org.springframework.web.reactive.function.client.bodyToFlow
 import uk.gov.justice.digital.hmpps.hmppsresettlementpassportprototypeapi.data.prisonapi.Prison
 
 @Service
@@ -12,11 +11,9 @@ class PrisonApiService(
   private val prisonWebClientClientCredentials: WebClient,
 ) {
 
-private fun getClient(useClientCredentials: Boolean = false): WebClient {
+  private fun getClient(useClientCredentials: Boolean = false): WebClient {
     return if (useClientCredentials) prisonWebClientClientCredentials else prisonWebClient
-    //return  if (useClientCredentials) prisonWebClient else prisonWebClient
   }
-
 
   suspend fun getPrisons(useClientCredentials: Boolean = false): List<Prison> {
     return getClient(useClientCredentials)
@@ -34,12 +31,11 @@ private fun getClient(useClientCredentials: Boolean = false): WebClient {
       .awaitBody()
   }
 
-  suspend fun getPrisonVideolinkConferenceCentreEmailAddress(useClientCredentials: Boolean = false, prisonId: String): String{
+  suspend fun getPrisonVideolinkConferenceCentreEmailAddress(useClientCredentials: Boolean = false, prisonId: String): String {
     return getClient(useClientCredentials)
       .get()
-      .uri("/secure/prisons/id/" + prisonId +"/videolink-conferencing-centre/email-address")
+      .uri("/secure/prisons/id/" + prisonId + "/videolink-conferencing-centre/email-address")
       .retrieve()
       .awaitBody()
   }
 }
-

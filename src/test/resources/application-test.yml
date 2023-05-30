@@ -31,20 +31,5 @@ logging:
     io.r2dbc.postgresql.QUERY: DEBUG # for queries
     io.r2dbc.postgresql.PARAM: INFO # for parameters
 
-hmpps.sqs:
-  reactiveApi: true
-  provider: localstack
-  queues:
-    audit:
-      queueName: ${random.uuid}
-    incentives:
-      queueName: incentives-event-queue
-      dlqName: incentives-event-dlq
-      subscribeTopicId: domainevents
-      subscribeFilter: '{"eventType":[ "prison-offender-events.prisoner.merged", "prisoner-offender-search.prisoner.received", "prisoner-offender-search.prisoner.alerts-updated" ] }'
-  topics:
-    domainevents:
-      arn: arn:aws:sns:eu-west-2:000000000000:11111111-2222-3333-4444-555555555555
-
 feature:
   incentives-reference-data-source-of-truth: true

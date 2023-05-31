@@ -9,6 +9,7 @@ api:
       prison: https://prison-register-dev.hmpps.service.justice.gov.uk
       #prison: http://localhost:8082
       offender-search: https://prisoner-offender-search-dev.prison.service.justice.gov.uk
+      #offender-search: http://localhost:8083
 
 management.endpoint:
   health.cache.time-to-live: 0

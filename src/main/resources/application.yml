@@ -24,12 +24,10 @@ spring:
       client:
         registration:
           RESETTLEMENT_PASSPORT_API:
-              provider: hmpps-auth
-              #client-id: ${resettlementpassport.api.client.id}
-              #client-secret: ${resettlementpassport.api.client.secret}
-              client-id: abdul-rahuman
-              client-secret: H<d4XPG5PoO-.4=XROfslPfAIIaX!JN9nb1dqmkzBPQ8Ad7C$(Qn1:fuqwN9
-              authorization-grant-type: client_credentials
+            provider: hmpps-auth
+            client-id: ${RESETTLEMENT_PASSPORT_API_CLIENT_ID}
+            client-secret: ${RESETTLEMENT_PASSPORT_API_CLIENT_SECRET}
+            authorization-grant-type: client_credentials
         provider:
           hmpps-auth:
             token-uri: ${api.base.url.oauth}/oauth/token

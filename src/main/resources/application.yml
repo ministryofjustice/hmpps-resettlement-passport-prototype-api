@@ -1,6 +1,10 @@
 info.app:
   name: Hmpps Resettlement Passport Prototype Api
   version: 1.0
+azure:
+  application-insights:
+    web:
+      enabled: false
 
 spring:
   application:
@@ -10,23 +14,27 @@ spring:
   mvc:
     async:
       request-timeout: 1m
+
   security:
     oauth2:
       resourceserver:
         jwt:
           jwk-set-uri: ${api.base.url.oauth}/.well-known/jwks.json
           #issuer-uri: ${api.base.url.oauth}/oauth2/default
-        #issuer:
-        #  name:
-        #    uri: ${api.base.url.oauth}/oauth2/default
-        #    jwk-set-uri: ${api.base.url.oauth}/.well-known/jwks.json
+          #issuer:
+          #  name:
+          #    uri: ${api.base.url.oauth}/oauth2/default
+          #    jwk-set-uri: ${api.base.url.oauth}/.well-known/jwks.json
+
 
       client:
         registration:
           RESETTLEMENT_PASSPORT_API:
             provider: hmpps-auth
-            client-id: ${RESETTLEMENT_PASSPORT_API_CLIENT_ID}
-            client-secret: ${RESETTLEMENT_PASSPORT_API_CLIENT_SECRET}
+            #client-id: ${RESETTLEMENT_PASSPORT_API_CLIENT_ID}
+            #client-secret: ${RESETTLEMENT_PASSPORT_API_CLIENT_SECRET}
+            client-id: abdul-rahuman
+            client-secret: H<d4XPG5PoO-.4=XROfslPfAIIaX!JN9nb1dqmkzBPQ8Ad7C$(Qn1:fuqwN9
             authorization-grant-type: client_credentials
         provider:
           hmpps-auth:
@@ -37,18 +45,56 @@ spring:
     serialization:
       WRITE_DATES_AS_TIMESTAMPS: false
 
+  devtools:
+    add-properties: false
+    data:
+      web:
+        pageable:
+          max-page-size: 20000
+
   profiles:
     group:
       test:
         - "stdout"
 
-  r2dbc:
-    url: r2dbc:postgresql://${DATABASE_ENDPOINT}/${DATABASE_NAME}
-    pool:
-      max-life-time: -1
+  jpa:
+    open-in-view: false
     properties:
-      ssl: true
-      sslRootCert: /home/appuser/.postgresql/root.crt
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+
+  datasource:
+    url: 'jdbc:postgresql://${DATABASE_ENDPOINT}/${DATABASE_NAME}?sslmode=prefer'
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+    hikari:
+      pool-name: Hmpps-Education-Employment
+      connectionTimeout: 1000
+      validationTimeout: 500
+
+  flyway:
+    initOnMigrate: true
+    enabled: true
+    url: ${spring.datasource.url}
+    user: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+
+  sql:
+    init:
+      continue-on-error: true
+
+
+#  r2dbc:
+#    url: r2dbc:postgresql://${DATABASE_ENDPOINT}/${DATABASE_NAME}
+#    pool:
+#      max-life-time: -1
+#    properties:
+#      ssl: true
+#      sslRootCert: /home/appuser/.postgresql/root.crt
 
 server:
   port: 8080

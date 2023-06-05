@@ -88,13 +88,13 @@ spring:
       continue-on-error: true
 
 
-#  r2dbc:
-#    url: r2dbc:postgresql://${DATABASE_ENDPOINT}/${DATABASE_NAME}
-#    pool:
-#      max-life-time: -1
-#    properties:
-#      ssl: true
-#      sslRootCert: /home/appuser/.postgresql/root.crt
+  r2dbc:
+    url: r2dbc:postgresql://${DATABASE_ENDPOINT}/${DATABASE_NAME}
+    pool:
+      max-life-time: -1
+    properties:
+      ssl: true
+      sslRootCert: /home/appuser/.postgresql/root.crt
 
 server:
   port: 8080

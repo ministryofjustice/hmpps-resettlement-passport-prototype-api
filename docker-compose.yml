@@ -50,7 +50,6 @@ services:
 #      - SPRING_PROFILES_ACTIVE=dev
 #     - API_BASE_URL_OAUTH=http://hmpps-auth:8080/auth
 
-
 #  prisoner-search:
 #    image: wiremock/wiremock:2.35.0
 #    networks:

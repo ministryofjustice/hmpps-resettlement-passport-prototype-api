@@ -14,7 +14,6 @@ spring:
   mvc:
     async:
       request-timeout: 1m
-
   security:
     oauth2:
       resourceserver:
@@ -31,10 +30,8 @@ spring:
         registration:
           RESETTLEMENT_PASSPORT_API:
             provider: hmpps-auth
-            #client-id: ${RESETTLEMENT_PASSPORT_API_CLIENT_ID}
-            #client-secret: ${RESETTLEMENT_PASSPORT_API_CLIENT_SECRET}
-            client-id: abdul-rahuman
-            client-secret: H<d4XPG5PoO-.4=XROfslPfAIIaX!JN9nb1dqmkzBPQ8Ad7C$(Qn1:fuqwN9
+            client-id: ${RESETTLEMENT_PASSPORT_API_CLIENT_ID}
+            client-secret: ${RESETTLEMENT_PASSPORT_API_CLIENT_SECRET}
             authorization-grant-type: client_credentials
         provider:
           hmpps-auth:

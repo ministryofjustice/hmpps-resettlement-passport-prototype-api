@@ -18,6 +18,14 @@ api:
       offender-search: http://localhost:8083
 
 spring:
+  devtools:
+    add-properties: true
+
+  flyway:
+    url: jdbc:postgresql://localhost:5432/resettlementpassport?sslmode=prefer
+    user: resettlementpassport
+    password: resettlementpassport
+
   r2dbc:
     url: r2dbc:postgresql://localhost:5432/resettlementpassport?sslmode=prefer
     username: resettlementpassport

@@ -17,7 +17,6 @@ api:
       #prison: http://localhost:8082
       offender-search: http://localhost:8083
 
-
 spring:
   devtools:
     add-properties: true

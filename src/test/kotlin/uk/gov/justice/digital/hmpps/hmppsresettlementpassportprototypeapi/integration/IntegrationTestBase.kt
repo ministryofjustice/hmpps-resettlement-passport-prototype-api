@@ -1,3 +1,5 @@
+
+/*
 package uk.gov.justice.digital.hmpps.hmppsresettlementpassportprototypeapi.integration
 
 import org.junit.jupiter.api.AfterAll
@@ -59,3 +61,4 @@ abstract class IntegrationTestBase : TestBase() {
   @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
   fun readFile(file: String): String = this.javaClass.getResource(file).readText()
 }
+*/

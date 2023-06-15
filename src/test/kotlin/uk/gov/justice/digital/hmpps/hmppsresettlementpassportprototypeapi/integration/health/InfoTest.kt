@@ -1,5 +1,3 @@
-
-/*
 package uk.gov.justice.digital.hmpps.hmppsresettlementpassportprototypeapi.integration.health
 
 import org.assertj.core.api.Assertions.assertThat
@@ -31,4 +29,3 @@ class InfoTest : IntegrationTestBase() {
       }
   }
 }
-*/

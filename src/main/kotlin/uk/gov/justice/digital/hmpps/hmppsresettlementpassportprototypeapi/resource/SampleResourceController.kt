@@ -27,6 +27,8 @@ class SampleResourceController(
 
   @GetMapping("/code")
   fun getAuthorizationCode(
-    @RequestBody @Parameter authorizationCode: String,
-  ): String  = "Authorization Code :" +  authorizationCode
+    @RequestBody
+    @Parameter
+    authorizationCode: String,
+  ): String = "Authorization Code :" + authorizationCode
 }

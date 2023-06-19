@@ -5,7 +5,11 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.responses.ApiResponses
 import org.springframework.http.MediaType
 import org.springframework.validation.annotation.Validated
-import org.springframework.web.bind.annotation.*
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.RequestParam
 import uk.gov.justice.digital.hmpps.hmppsresettlementpassportprototypeapi.config.ErrorResponse
 import uk.gov.justice.digital.hmpps.hmppsresettlementpassportprototypeapi.data.prisonapi.OffenderSearchPrisoner
 import uk.gov.justice.digital.hmpps.hmppsresettlementpassportprototypeapi.service.OffenderSearchApiService

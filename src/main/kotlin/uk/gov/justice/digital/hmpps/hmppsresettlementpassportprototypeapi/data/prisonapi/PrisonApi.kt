@@ -30,3 +30,13 @@ data class PrisonType(
 data class PrisonOperator(
   val name: String,
 )
+
+data class PrisonerAtLocation(
+  val bookingId: Long,
+  val facialImageId: Long,
+  val firstName: String,
+  val lastName: String,
+  val offenderNo: String,
+  val agencyId: String,
+  val assignedLivingUnitId: Long,
+)

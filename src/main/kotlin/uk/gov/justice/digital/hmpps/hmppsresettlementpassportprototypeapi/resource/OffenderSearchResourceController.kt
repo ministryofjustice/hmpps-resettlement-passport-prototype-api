@@ -1,6 +1,7 @@
 package uk.gov.justice.digital.hmpps.hmppsresettlementpassportprototypeapi.resource
 
 import io.swagger.v3.oas.annotations.Operation
+import io.swagger.v3.oas.annotations.Parameter
 import io.swagger.v3.oas.annotations.media.Content
 import io.swagger.v3.oas.annotations.media.Schema
 import io.swagger.v3.oas.annotations.responses.ApiResponse
@@ -9,9 +10,9 @@ import org.springframework.http.MediaType
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
-import org.springframework.web.bind.annotation.RequestParam
 import uk.gov.justice.digital.hmpps.hmppsresettlementpassportprototypeapi.config.ErrorResponse
 import uk.gov.justice.digital.hmpps.hmppsresettlementpassportprototypeapi.data.prisonapi.OffenderSearchPrisoner
 import uk.gov.justice.digital.hmpps.hmppsresettlementpassportprototypeapi.service.OffenderSearchApiService
@@ -19,7 +20,7 @@ import uk.gov.justice.digital.hmpps.hmppsresettlementpassportprototypeapi.servic
 @RestController
 @Validated
 @RequestMapping("/hmpps", produces = [MediaType.APPLICATION_JSON_VALUE])
-class OffendersSearchResourceContorller(
+class OffenderSearchResourceController(
   private val offenderSearchService: OffenderSearchApiService,
 ) {
 
@@ -41,13 +42,14 @@ class OffendersSearchResourceContorller(
   suspend fun getPrisonerbyTerm(
     @PathVariable
     prisonId: String,
-    @RequestParam
+    @RequestBody
+    @Parameter
     term: String,
-    @RequestParam
+    @Parameter
     page: Int,
-    @RequestParam
+    @Parameter
     size: Int,
-    @RequestParam
+    @Parameter
     sort: String,
   ): List<OffenderSearchPrisoner> = offenderSearchService.getPrisonersByTerm(prisonId, term, page, size, sort)
 }

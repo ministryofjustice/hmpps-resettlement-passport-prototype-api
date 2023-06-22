@@ -8,7 +8,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.responses.ApiResponses
 import kotlinx.coroutines.flow.Flow
 import org.springdoc.core.annotations.ParameterObject
-import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.domain.Sort
 import org.springframework.data.web.PageableDefault
@@ -20,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 import uk.gov.justice.digital.hmpps.hmppsresettlementpassportprototypeapi.config.ErrorResponse
-import uk.gov.justice.digital.hmpps.hmppsresettlementpassportprototypeapi.data.prisonapi.Offenders
 import uk.gov.justice.digital.hmpps.hmppsresettlementpassportprototypeapi.data.prisonapi.OffendersList
 import uk.gov.justice.digital.hmpps.hmppsresettlementpassportprototypeapi.service.OffenderSearchApiService
 

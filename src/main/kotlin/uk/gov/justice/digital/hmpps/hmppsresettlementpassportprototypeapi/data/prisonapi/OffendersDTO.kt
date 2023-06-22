@@ -1,11 +1,9 @@
 package uk.gov.justice.digital.hmpps.hmppsresettlementpassportprototypeapi.data.prisonapi
 
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties
 import java.time.LocalDate
 import java.time.LocalDateTime
 
-
-data class Offenders (
+data class Offenders(
   var prisonerNumber: String,
   var pncNumber: String? = null,
   var pncNumberCanonicalShort: String? = null,
@@ -119,7 +117,7 @@ data class OffendersList(
   val content: List<Offenders>,
   val totalElements: Int,
   val last: Boolean,
-  var size : Int,
-  var number : Int,
-  var totalPages :Int,
+  var size: Int,
+  var number: Int,
+  var totalPages: Int,
 )
